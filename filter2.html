@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter</title>
+    <link rel="stylesheet" href="filter.css">
+    <link rel="icon" type="image/x-icon" href="ad_logo.png">
+</head>
+<body>
+    <div class="filter" id="filter-pic" >
+        <p class="text1">SEARCH BY FILTER</p>
+        <p class="text2">SELECT YOUR RANGE AND GET THE CARS</p>
+    </div>
+
+    <label for="priceDropdown" class="labelname">Select Price Range:</label>
+    <select id="priceDropdown">
+        <option value="0">0</option>
+        <option value="500000">5,00,000</option>
+        <option value="700000">7,00,000</option>
+        <option value="1000000">10,00,000</option>
+        <option value="1200000">12,00,000</option>
+        <option value="1500000">15,00,000</option>
+    </select>
+
+    <div id="variableBox"></div>
+
+    <script>
+        const priceDropdown = document.getElementById('priceDropdown');
+        const variableBox = document.getElementById('variableBox');
+
+        const cars = [
+            { name: 'Maruti Alto', price: 500000 },
+            { name: 'Renault Kwid', price: 700000 },
+            { name: 'Maruti S-Presso', price: 350000 },
+      { name: 'Tata Nexon', price: 810000 },
+      { name: 'Maruti Swift', price: 599000 },
+      { name: 'Tata Punch', price: 600000 },
+      { name: 'Maruti Brezza', price: 829000},
+      { name: 'Maruti Fronx', price: 746000 },
+      { name: 'Maruti Ertiga', price: 864000},
+      { name: 'Hyundai Exter', price: 600000},
+      { name: 'Mahindra Bolero', price: 979000},
+      { name: 'Mahindra XUV300', price: 799000},
+      { name: 'Maruti Baleno', price: 661000},
+      { name: 'Hyundai Venue', price: 789000},
+      { name: 'Maruti Dzire', price: 651000},
+      { name: 'Hyundai i20', price: 699000},
+      { name: 'Maruti WagonR', price: 554000},
+      { name: 'Tata Tiago', price: 560000},
+      { name: 'Tata Altroz', price: 66000},
+      { name: 'Kia Sonet', price: 779000},
+      { name: 'Nissan Magnite', price: 600000},
+      { name: 'Maruti Alto K10', price: 399000},
+      { name: 'Hyundai Aura', price: 644000},
+            // Add more car data here...
+        ];
+
+        priceDropdown.addEventListener('change', updateCarList);
+
+        function updateCarList() {
+            const selectedPrice = parseInt(priceDropdown.value, 10);
+            const filteredCars = cars.filter(car => car.price <= selectedPrice);
+
+            displaySelectedCars(filteredCars);
+        }
+
+        function displaySelectedCars(carsToShow) {
+            if (variableBox) {
+                if (carsToShow.length > 0) {
+                    variableBox.innerHTML = ''; // Clear previous content
+
+                    carsToShow.forEach(car => {
+                        const carLink = document.createElement('a');
+                        carLink.textContent = car.name;
+                        carLink.href = '#'; // Replace '#' with your actual link
+                        carLink.classList.add('car-link'); // Add the 'car-link' class
+                        // carLink.href = 'www.google.com';
+                        // carLink.classList.add('Maruti Alto');
+                        // carLink.href = '#';
+                        // carLink.classList.add('car-link');
+                        // carLink.href = '#';
+                        // carLink.classList.add('car-link');
+                        // carLink.href = '#';
+                        // carLink.classList.add('car-link');
+                        // carLink.href = '#';
+                        // carLink.classList.add('car-link');
+                        // carLink.href = '#';
+                        // carLink.classList.add('car-link');
+                        // carLink.href = '#';
+                        // carLink.classList.add('car-link');
+                        // carLink.href = '#';
+                        // carLink.classList.add('car-link');
+                        // carLink.href = '#';
+                        // carLink.classList.add('car-link');
+                        // carLink.href = '#';
+                        // carLink.classList.add('car-link');
+                        // carLink.href = '#';
+                        // carLink.classList.add('car-link');
+                        // carLink.href = '#';
+                        // carLink.classList.add('car-link');
+                        // carLink.href = '#';
+                        // carLink.classList.add('car-link');
+                        // carLink.href = '#';
+                        // carLink.classList.add('car-link');
+                        // carLink.href = '#';
+                        // carLink.classList.add('car-link');
+                        // carLink.href = '#';
+                        // carLink.classList.add('car-link');
+                        variableBox.appendChild(carLink);
+                    });
+                } else {
+                    variableBox.textContent = 'No cars found within this price range';
+                }
+            }
+        }
+
+
+        updateCarList(); // Initial display on page load
+    </script>
+</body>
+</html>

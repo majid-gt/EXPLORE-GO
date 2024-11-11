@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour Trek - Locations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7731a;
+        }
+
+        header {
+            background-color: #f7731a;
+            color: black;
+            padding: 1em;
+            text-align: center;
+        }
+
+        #locations-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 2em;
+        }
+
+        .location-card {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 1em;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            background-color: white;
+        }
+
+        /* Anchor styles for clickable names */
+        .location-card a {
+            text-decoration: none;
+            color: #0366d6; /* Change link color */
+            font-weight: bold;
+            transition: color 0.3s ease-in-out; /* Smooth color transition */
+        }
+
+        .location-card a:hover {
+            color: #ff4500; /* Change color on hover */
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Tour Trek - Locations</h1>
+    </header>
+
+    <div id="locations-container"></div>
+
+    <script>
+        // Sample locations data (replace with your actual data)
+        const locations = [
+            { name: "<a href='https://www.holidify.com/collections/historical-places-in-india'>Historical Sites</a>", description: 'A description of the historical site.' },
+            { name: '<a href="https://traveltriangle.com/blog/famous-museums-in-india/">Museum</a>', description: 'Explore artifacts and exhibits.' },
+            { name: '<a href="https://www.cleartrip.com/collections/top-national-parks-in-india/">Park</a>', description: 'Enjoy nature and outdoor activities.' },
+            { name: '<a href="https://en.wikipedia.org/wiki/List_of_hospitals_in_India">Hospitals</a>', description: 'Be healthy.' },
+            { name: '<a href="https://www.ndtvprofit.com/trending/list-of-indias-top-50-restaurants-of-2023-released-by-travel-magazine-check-here-bqc">Restuarent</a>', description: 'enjoy your own taste.' },
+            { name: '<a href="https://www.tourmyindia.com/blog/top-30-famous-temples-in-india/">Temples</a>', description: 'pray for all.' },
+            // Add more locations as needed
+        ];
+
+        // Display locations
+        const locationsContainer = document.getElementById('locations-container');
+        locations.forEach(location => {
+            const locationCard = document.createElement('div');
+            locationCard.className = 'location-card';
+            locationCard.innerHTML = `
+                <h2>${location.name}</h2>
+                <p>${location.description}</p>
+                <!-- Add more details or actions as needed -->
+            `;
+            locationsContainer.appendChild(locationCard);
+        });
+    </script>
+
+</body>
+</html>
